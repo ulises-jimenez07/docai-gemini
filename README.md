@@ -67,8 +67,8 @@ OUT_BUCKET_URI = f"gs://documentai-temp-{TEMP_BUCKET_URI}-unique"
 gsutil mb -l {LOCATION} -p {PROJECT_ID} {OUT_BUCKET_URI}
 ```
 
-
-
+# Diagram
+![alt text](https://github.com/ulises-jimenez07/docai-gemini/blob/valentinhuerta1996-patch-1/src/diagram.png)
 
 # Code Overview
 - `test_doc_ai.py`: This script orchestrates the entire process:
