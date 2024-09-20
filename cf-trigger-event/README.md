@@ -41,6 +41,7 @@ This repository contains a Cloud Function that demonstrates a pipeline for proce
    export TOPIC_NAME="documents"
    export PROCESSOR_ID=your-processor-id
    export PROCESSOR_VERSION_ID=your-processor-version
+   export FIREBASE_DB=your-firebase-database-url
    ```
 3. **Create Cloud Storage Buckets:**
    ```bash
@@ -70,7 +71,7 @@ This repository contains a Cloud Function that demonstrates a pipeline for proce
    --trigger-topic $TOPIC_NAME \
    --source . \
    --entry-point on_document_added \
-   --set-env-vars "GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=$REGION,PROCESSOR_ID=$PROCESSOR_ID,PROCESSOR_VERSION_ID=$PROCESSOR_VERSION_ID,TEMP_BUCKET=$TEMP_BUCKET, OUTPUT_BUCKET=$OUT_BUCKET" \
+   --set-env-vars "GCP_PROJECT_ID=$PROJECT_ID,GCP_REGION=$REGION,PROCESSOR_ID=$PROCESSOR_ID,PROCESSOR_VERSION_ID=$PROCESSOR_VERSION_ID,TEMP_BUCKET=$TEMP_BUCKET, OUTPUT_BUCKET=$OUT_BUCKET,FIREBASE_DB=$FIREBASE_DB" \
    --timeout 240s \
    --memory 512MB \
    --gen2
