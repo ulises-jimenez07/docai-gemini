@@ -27,6 +27,12 @@ from google.cloud import documentai
 from google.cloud import storage
 from google.api_core.exceptions import NotFound
 
+from firebase_admin import db, initialize_app
+from firebase_functions import https_fn
+import flask
+from flask import request
+from google.cloud import firestore
+
 
 from extractor import BatchDocumentExtractor
 from extractor import OnlineDocumentExtractor
@@ -57,10 +63,8 @@ FIREBASE_DB = os.getenv("FIREBASE_DB")
 vertexai.init(project=PROJECT_ID, location=REGION)
 storage_client = storage.Client(project=PROJECT_ID)
 
-from firebase_admin import db, initialize_app
-from firebase_functions import https_fn
-from google.cloud import firestore
 
+# Firestore App
 initialize_app()
 app = flask.Flask(__name__)
 db = firestore.Client(project=PROJECT_ID, database=FIREBASE_DB)
